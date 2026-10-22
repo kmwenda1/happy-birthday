@@ -7,30 +7,251 @@
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/index.css">
 
-  <!-- Document Title -->
-  <title>Flowers For Umeima</title>
+  <title>Happy 20th Birthday, Umeima! ✨</title>
 </head>
 
 <body>
-  <!-- Background -->
-  <div class="night"></div>
+  <!-- Background Canvas for floating fairy lights & stars -->
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
 
-  <main class="container">
-    <!-- Title -->
-    <h1 class="title"></h1>
-
-    <!-- Button -->
-    <div class="btn-wrapper">
-      <a href="flower.html" class="btn">
-        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
-          <path
-            d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
-          </path>
-        </svg>
-
-        <span class="text">Open</span>
+  <!-- Top Sticky Bar -->
+  <header class="top-nav">
+    <div class="nav-brand">✨ Chapter 20</div>
+    <div class="nav-actions">
+      <button id="music-toggle-btn" class="nav-btn music-btn" aria-label="Toggle Birthday Music">
+        <span class="music-icon">🎵</span>
+        <span class="music-label">Play Music</span>
+      </button>
+      <a href="flower.html" class="nav-btn flower-link">
+        <span>🌸 Secret Garden</span>
       </a>
     </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="milestone-pill">
+        <span class="pill-sparkle">✨</span> LEVEL 20 UNLOCKED <span class="pill-sparkle">✨</span>
+      </div>
+      <h1 class="hero-title">Happy 20th Birthday,<br><span class="name-gradient">Umeima</span></h1>
+      <p class="hero-subtitle">
+        Welcome to your twenties! An entirely new chapter filled with bigger dreams, endless laughter, and beautiful memories starts today.
+      </p>
+      <div class="scroll-hint">
+        <span>Scroll down to celebrate</span>
+        <div class="arrow-down">↓</div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY 1: INTERACTIVE BIRTHDAY CAKE -->
+    <section class="activity-card cake-section" id="cake-activity">
+      <div class="section-tag">Activity 1</div>
+      <h2 class="section-title">Make a 20th Birthday Wish 🎂</h2>
+      <p class="section-desc">Close your eyes, make your deepest wish for Chapter 20, and blow out the candles!</p>
+
+      <div class="cake-container">
+        <!-- 2 & 0 Birthday Candles -->
+        <div class="candles-wrapper">
+          <div class="candle candle-1">
+            <div class="flame" id="flame-1"></div>
+            <div class="smoke" id="smoke-1"></div>
+            <div class="wick"></div>
+            <div class="candle-body">2</div>
+          </div>
+          <div class="candle candle-2">
+            <div class="flame" id="flame-2"></div>
+            <div class="smoke" id="smoke-2"></div>
+            <div class="wick"></div>
+            <div class="candle-body">0</div>
+          </div>
+        </div>
+
+        <!-- Layered Cake -->
+        <div class="cake">
+          <div class="cake-tier tier-top">
+            <div class="frosting-drippings"></div>
+            <div class="strawberry strawberry-1">🍓</div>
+            <div class="strawberry strawberry-2">🍓</div>
+            <div class="strawberry strawberry-3">🍓</div>
+          </div>
+          <div class="cake-tier tier-bottom">
+            <div class="frosting-drippings"></div>
+            <div class="sprinkle s1"></div>
+            <div class="sprinkle s2"></div>
+            <div class="sprinkle s3"></div>
+            <div class="sprinkle s4"></div>
+            <div class="sprinkle s5"></div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <div class="cake-actions">
+        <button id="blow-candles-btn" class="action-btn glow-btn">
+          <span>🕯️ Make a Wish & Blow Candles</span>
+        </button>
+      </div>
+
+      <div id="wish-banner" class="wish-banner hidden">
+        <div class="wish-banner-content">
+          <div class="wish-icon">🎉✨</div>
+          <h3>Your wish is on its way to the stars!</h3>
+          <p>May every single dream you carry into your 20s blossom into something breathtaking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY 2: 20 WISHES FOR CHAPTER 20 -->
+    <section class="activity-card wishes-section" id="wishes-activity">
+      <div class="section-tag">Activity 2</div>
+      <h2 class="section-title">20 Things for Chapter 20 💌</h2>
+      <p class="section-desc">20 affirmations, wishes, and reminders for your 20th milestone year.</p>
+
+      <div class="wishes-box">
+        <div class="wishes-progress">
+          <span id="wish-counter">Wish 1 of 20</span>
+          <div class="progress-bar-bg">
+            <div id="wish-progress-fill" class="progress-bar-fill" style="width: 5%;"></div>
+          </div>
+        </div>
+
+        <div class="wish-card" id="wish-card">
+          <div class="wish-card-badge" id="wish-badge">#1</div>
+          <p class="wish-text" id="wish-text">Chapter 20: Main character energy only. The spotlight is yours!</p>
+          <div class="wish-emoji" id="wish-emoji">👑</div>
+        </div>
+
+        <div class="wish-controls">
+          <button id="prev-wish-btn" class="pill-btn secondary-btn" aria-label="Previous wish">← Prev</button>
+          <button id="shuffle-wish-btn" class="pill-btn surprise-btn" aria-label="Surprise wish">🎲 Surprise</button>
+          <button id="next-wish-btn" class="pill-btn primary-btn" aria-label="Next wish">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY 3: BALLOON POP MINI GAME -->
+    <section class="activity-card balloons-section" id="balloons-activity">
+      <div class="section-tag">Activity 3</div>
+      <h2 class="section-title">Pop the Birthday Balloons 🎈</h2>
+      <p class="section-desc">Tap each balloon to pop it and discover what surprise is hiding inside!</p>
+
+      <div class="balloons-counter">
+        Balloons popped: <span id="popped-count">0</span> / 5
+      </div>
+
+      <div class="balloons-grid" id="balloons-grid">
+        <div class="balloon-item" data-index="0" data-msg="🌸 Effortlessly Radiant" data-emoji="✨">
+          <div class="balloon balloon-pink">
+            <span class="balloon-shine"></span>
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon-msg hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-index="1" data-msg="💖 Pure Kindness" data-emoji="🌟">
+          <div class="balloon balloon-purple">
+            <span class="balloon-shine"></span>
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon-msg hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-index="2" data-msg="🍰 Extra Cake Always" data-emoji="🎂">
+          <div class="balloon balloon-rose">
+            <span class="balloon-shine"></span>
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon-msg hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-index="3" data-msg="👑 Absolute Queen" data-emoji="💎">
+          <div class="balloon balloon-gold">
+            <span class="balloon-shine"></span>
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon-msg hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-index="4" data-msg="🎉 Zero Stress Vibes" data-emoji="🌈">
+          <div class="balloon balloon-peach">
+            <span class="balloon-shine"></span>
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon-msg hidden"></div>
+        </div>
+      </div>
+
+      <div id="balloon-all-popped" class="balloons-reward hidden">
+        🎉 You popped all balloons! You officially hold the title of coolest 20-year-old on Earth! 💖
+      </div>
+    </section>
+
+    <!-- ACTIVITY 4: THE 20TH MILESTONE LETTER -->
+    <section class="activity-card letter-section" id="letter-activity">
+      <div class="section-tag">Activity 4</div>
+      <h2 class="section-title">A Letter for Your 20th 📜</h2>
+      <p class="section-desc">A special message just for you on this milestone day.</p>
+
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope-trigger">
+          <div class="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          <div class="wax-seal" id="wax-seal">
+            <span>20</span>
+          </div>
+          <div class="envelope-prompt">💌 Tap to open letter</div>
+        </div>
+
+        <div class="letter-sheet hidden" id="letter-sheet">
+          <div class="letter-header">
+            <span class="letter-badge">October Milestone</span>
+            <h3>Dear Umeima,</h3>
+          </div>
+
+          <div class="letter-body">
+            <p>
+              Happy 20th Birthday! Leaving your teenage years behind and stepping into your twenties is a huge and exciting milestone.
+            </p>
+            <p>
+              Over the years, you’ve brought so much warmth, kindness, and light to everyone who knows you. Your smile has a way of turning ordinary moments into good memories, and your genuine heart makes you truly one of a kind.
+            </p>
+            <p>
+              May chapter 20 bring you peace of mind, big breakthroughs, laughter until your ribs ache, and the courage to pursue everything that excites you. You deserve all the good things life has to offer.
+            </p>
+            <p class="letter-quote">
+              "Here’s to entering your twenties with confidence, grace, and unmatched joy!"
+            </p>
+          </div>
+
+          <div class="letter-footer">
+            <p>With warmest wishes & love,</p>
+            <p class="letter-sig">Always cheering for you ❤️</p>
+            <button id="close-letter-btn" class="pill-btn secondary-btn close-letter-btn">Close Letter</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECRET GARDEN CALLOUT -->
+    <section class="garden-callout">
+      <div class="garden-callout-card">
+        <div class="garden-icon">🌸🌙</div>
+        <h3>The Secret Flower Garden</h3>
+        <p>Want to see the glowing midnight flowers blooming in the sky?</p>
+        <a href="flower.html" class="action-btn glow-btn flower-portal-btn">
+          <span>Enter the Glowing Garden →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <p>Crafted with love for Umeima’s 20th Birthday ✨</p>
+    </footer>
+
   </main>
 
   <script src="js/index.js"></script>
