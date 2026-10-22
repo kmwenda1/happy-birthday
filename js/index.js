@@ -1,22 +1,20 @@
-const title = document.querySelector('.title')
-const text = `I Have Something`.split('')
+const title = document.querySelector('.title');
+const phrase = "I Have Something For You";
+const words = phrase.split(' ');
 
-// Create container for better responsive layout
-title.style.display = 'flex'
-title.style.flexWrap = 'wrap'
-title.style.justifyContent = 'center'
-title.style.gap = '0.5rem'
+title.innerHTML = '';
 
-for (let index = 0; index < text.length; index++) {
-  if (text[index] !== ' ') {
-    title.innerHTML += `<span>${text[index]}</span>`
-  } else {
-    title.innerHTML += `<span style='width: 1rem'></span>`
+words.forEach((word) => {
+  const wordSpan = document.createElement('span');
+  wordSpan.className = 'word';
+
+  for (let i = 0; i < word.length; i++) {
+    const charSpan = document.createElement('span');
+    charSpan.textContent = word[i];
+    const randomDelay = Math.random() * 2.5;
+    charSpan.style.animationDelay = `${randomDelay}s`;
+    wordSpan.appendChild(charSpan);
   }
-}
 
-const textElements = document.querySelectorAll('.title span');
-textElements.forEach((element) => {
-  const randomDelay = Math.random() * 3;
-  element.style.animationDelay = `${randomDelay}s`;
+  title.appendChild(wordSpan);
 });

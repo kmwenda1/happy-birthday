@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Document Title -->
-  <title>FLOWERS</title>
+  <title>Happy Birthday Umeima</title>
 </head>
 
 <body class="not-loaded">
@@ -316,9 +316,38 @@
 
   <!-- Title -->
   <h1 class="title"><span id="title"></span></h1>
+
+  <!-- Floating Button to Open Card -->
+  <button id="open-card-btn" class="card-trigger-btn" aria-label="Open birthday message">
+    <span>💌 A message for you</span>
+  </button>
+
+  <!-- Birthday Card Modal -->
+  <div id="card-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="close-card-btn" aria-label="Close card">&times;</button>
+
+      <div class="card-badge">✨ 20th Milestone ✨</div>
+      <h2 class="card-title">Happy 20th Birthday, Umeima!</h2>
+
+      <div class="card-divider">
+        <span>🌸</span>
+      </div>
+
+      <div class="card-body">
+        <p>Welcome to your twenties! 🎉</p>
+        <p>May this milestone year mark the start of your greatest adventures, unforgettable memories, and dreams coming true. May your days be filled with endless laughter, good health, peace, and success in everything you set your heart on.</p>
+        <p>You bring so much warmth and light into the lives of those around you—stay as wonderful, kind, and radiant as you are.</p>
+        <p class="card-highlight">Here’s to making chapter 20 your most beautiful one yet!</p>
+      </div>
+
+      <div class="card-footer">
+        <span class="card-heart">With warm wishes & love ❤️</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
-
-<!-- Import Javascript -->
-<script src="js/main.js"></script>
