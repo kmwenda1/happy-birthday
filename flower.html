@@ -8,19 +8,24 @@
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
 
-  <title>The Secret Flower Garden 🌸</title>
+  <title>The Flower Garden 🌸</title>
 </head>
 
 <body>
-  <!-- Top Navigation Button -->
-  <a href="index.html" class="back-hub-btn" aria-label="Back to celebration hub">← 🏠 Birthday Hub</a>
+  <!-- Top Navigation Bar -->
+  <header class="garden-nav">
+    <a href="index.html" class="nav-pill" aria-label="Back to celebration hub">← 🏠 Birthday Hub</a>
+    <div class="garden-nav-actions">
+      <button id="rebloom-btn" class="nav-pill" aria-label="Clear and Rebloom">🔄 Rebloom</button>
+    </div>
+  </header>
 
-  <!-- Regenerating Garden Canvas -->
-  <canvas id="garden-canvas"></canvas>
+  <!-- Flower Wall Container (Full Screen Dense Blooming Tapestry) -->
+  <div id="flower-wall" class="flower-wall"></div>
 
   <!-- Interactive Hint -->
-  <div class="garden-hint" id="garden-hint">
-    <span>🌸 Tap anywhere on the screen to bloom flowers 🌸</span>
+  <div class="garden-tap-prompt" id="tap-prompt">
+    <span>🌸 Tap anywhere on the screen to bloom more flowers 🌸</span>
   </div>
 
   <!-- Floating Button to Open Card -->
